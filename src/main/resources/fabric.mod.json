@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "tfccaveins",
+  "version": "${version}",
+  "name": "TFC Cave-Ins",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/tfccaveins/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "com.github.amusingimpala75.terrafabriccraft.client.TerraFabricCraftClient"
+    ],
+    "main": [
+      "com.github.amusingimpala75.terrafabriccraft.TerraFabricCraft"
+    ],
+    "modmenu": [
+      "com.github.amusingimpala75.terrafabriccraft.config.ModMenuIntegration"
+    ]
+  },
+  "mixins": [
+    "terrafabriccraft.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.10.8",
+    "fabric": "*",
+    "minecraft": "1.16.4"
+  }
+}
