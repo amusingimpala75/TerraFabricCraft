@@ -2,7 +2,7 @@ package com.github.amusingimpala75.terrafabriccraft.mixin;
 
 import com.github.amusingimpala75.terrafabriccraftcore.sounds.TerraFabricCraftSounds;
 import com.github.amusingimpala75.terrafabriccraftcore.util.BlockCollapsingUtil;
-import com.github.amusingimpala75.terrafabriccraft.block.SupportStatesEnum;
+import com.github.amusingimpala75.terrafabriccraft.block.propertyenums.SupportStatesEnum;
 import com.github.amusingimpala75.terrafabriccraft.block.WoodenSupportBlock;
 import com.github.amusingimpala75.terrafabriccraft.ducks.BlockDuck;
 import net.minecraft.block.*;
@@ -24,6 +24,7 @@ import java.util.Random;
 
 @Mixin(Block.class)
 @SuppressWarnings("deprecation")
+//TODO: Fix supporting to allow for if on other block then is supported
 public abstract class MixinBlock extends AbstractBlock implements BlockDuck {
 
     @Unique
@@ -77,7 +78,7 @@ public abstract class MixinBlock extends AbstractBlock implements BlockDuck {
 
     @Override
     public boolean doesCollapse() {
-        return collapses();
+        return collapses() && !this.instaCollapses();
     }
 
     @Override
@@ -101,14 +102,16 @@ public abstract class MixinBlock extends AbstractBlock implements BlockDuck {
     }
 
     public boolean isSupportedWithoutAirCheck(World world, BlockPos pos) {
-        for (int x = -4; x <= 4; x++) {
-            for (int y = -1; y <= 1; y++) {
-                for (int z = -4; z <= 4; z++) {
-                    BlockState state = world.getBlockState(pos.up(y).north(z).east(x));
-                    if (state.getBlock() instanceof WoodenSupportBlock) {
-                        SupportStatesEnum supportState = state.get(WoodenSupportBlock.STATES);
-                        if (supportState.equals(SupportStatesEnum.NORTH_SOUTH) || supportState.equals(SupportStatesEnum.EAST_WEST)) {
-                            return true;
+        if (this.collapses) {
+            for (int x = -4; x <= 4; x++) {
+                for (int y = -1; y <= 1; y++) {
+                    for (int z = -4; z <= 4; z++) {
+                        BlockState state = world.getBlockState(pos.up(y).north(z).east(x));
+                        if (state.getBlock() instanceof WoodenSupportBlock) {
+                            SupportStatesEnum supportState = state.get(WoodenSupportBlock.STATES);
+                            if (supportState.equals(SupportStatesEnum.NORTH_SOUTH) || supportState.equals(SupportStatesEnum.EAST_WEST)) {
+                                return true;
+                            }
                         }
                     }
                 }
@@ -127,6 +130,7 @@ public abstract class MixinBlock extends AbstractBlock implements BlockDuck {
             world.setBlockState(pos, ((BlockDuck) (world.getBlockState(pos).getBlock())).getCollapseBlock().getDefaultState());
             FallingBlockEntity fallingBlockEntity = new FallingBlockEntity(world, (double) pos.getX() + 0.5D, pos.getY(), (double) pos.getZ() + 0.5D, world.getBlockState(pos));
             world.spawnEntity(fallingBlockEntity);
+            System.out.println("Falling!");
         } else {
             if (this.isSoil()) {
                 world.playSound(

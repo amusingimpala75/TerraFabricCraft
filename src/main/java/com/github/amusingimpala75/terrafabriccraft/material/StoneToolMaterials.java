@@ -1,9 +1,6 @@
-package com.github.amusingimpala75.terrafabriccraft.block;
+package com.github.amusingimpala75.terrafabriccraft.material;
 
-import com.github.amusingimpala75.terrafabriccraft.config.TerraFabricCraftConfig;
 import com.github.amusingimpala75.terrafabriccraft.item.TerraFabricCraftItems;
-import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.Item;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
@@ -38,11 +35,7 @@ public enum StoneToolMaterials implements ToolMaterial {
 
     @Override
     public float getAttackDamage() {
-        TerraFabricCraftConfig config = AutoConfig.getConfigHolder(TerraFabricCraftConfig.class).getConfig();
-        if (FabricLoader.getInstance().isModLoaded("terrafabriccraft")) {
-            config.TFCMode = true;
-        }
-        return config.TFCMode ? 40.0F : 1.0F;
+        return 40.0F;
     }
 
     @Override

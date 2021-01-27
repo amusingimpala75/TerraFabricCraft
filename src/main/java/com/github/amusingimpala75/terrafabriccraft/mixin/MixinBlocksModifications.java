@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(Blocks.class)
 public class MixinBlocksModifications {
 
-    @Inject(at=@At("HEAD"), method = "register", cancellable = true)
+    /*@Inject(at=@At("HEAD"), method = "register", cancellable = true)
     private static void modifyCertainBlocks(String id, Block block, CallbackInfoReturnable<Block> info) {
         switch (id) {
             case "cobblestone":
@@ -36,5 +36,5 @@ public class MixinBlocksModifications {
                 info.setReturnValue(Registry.register(Registry.BLOCK, id, ((BlockDuck) (((BlockDuck) (((BlockDuck) (block)).canCollapse())).collapsesToOtherBlock(Blocks.DIRT))).doesInstantlyCollapse()));
                 break;
         }
-    }
+    }*/
 }

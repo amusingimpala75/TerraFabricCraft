@@ -1,4 +1,4 @@
-package com.github.amusingimpala75.terrafabriccraft.block;
+package com.github.amusingimpala75.terrafabriccraft.block.propertyenums;
 
 import net.minecraft.util.StringIdentifiable;
 

@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "id": "tfccaveins",
+  "id": "terrafabriccraft",
   "version": "${version}",
-  "name": "TFC Cave-Ins",
+  "name": "TerraFabricCraft",
   "description": "",
   "authors": [],
   "contact": {},

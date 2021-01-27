@@ -1,0 +1,15 @@
+{
+  "type": "terrafabriccraft:knapping",
+  "material": "stone",
+  "layout": [
+    " ", "O", " ", " ", " ",
+    "O", "O", "O", "O", " ",
+    "O", "O", "O", "O", "O",
+    "O", "O", "O", "O", " ",
+    " ", "O", " ", " ", " "
+  ],
+  "output": {
+    "item": "minecraft:stone_axe",
+    "count": 1
+  }
+}

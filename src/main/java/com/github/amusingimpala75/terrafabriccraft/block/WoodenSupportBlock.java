@@ -1,5 +1,6 @@
 package com.github.amusingimpala75.terrafabriccraft.block;
 
+import com.github.amusingimpala75.terrafabriccraft.block.propertyenums.SupportStatesEnum;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;

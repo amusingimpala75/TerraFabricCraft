@@ -47,8 +47,13 @@ dependencies {
     include "com.github.Chocohead:Fabric-ASM:v2.1"
     modImplementation "com.lettuce.fudge:artifice:0.14.4+1.16.3"
     include "com.lettuce.fudge:artifice:0.14.4+1.16.3"
-    modImplementation "com.github.AmusingImpala75:TerraFabricCraftCore:0.2.1"
-    include "com.github.AmusingImpala75:TerraFabricCraftCore:0.2.1"
+    modImplementation "com.github.AmusingImpala75:TerraFabricCraftCore:5d91a12a9d"
+    include "com.github.AmusingImpala75:TerraFabricCraftCore:5d91a12a9d"
+
+    //Because I don't need dfu indev
+    modRuntime ("com.github.SuperCoder7979:databreaker:715b589e55") {
+        exclude module: "fabric-loader"
+    }
 }
 
 processResources {

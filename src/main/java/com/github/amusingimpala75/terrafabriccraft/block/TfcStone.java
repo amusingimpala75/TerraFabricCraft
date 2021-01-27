@@ -20,8 +20,7 @@ public class TfcStone extends Block {
         if (world.getBlockState(pos.north()).getBlock() instanceof AirBlock && world.getBlockState(pos.east()).getBlock() instanceof AirBlock &&
                 world.getBlockState(pos.south()).getBlock() instanceof AirBlock && world.getBlockState(pos.west()).getBlock() instanceof AirBlock &&
                 world.getBlockState(pos.up()).getBlock() instanceof AirBlock && world.getBlockState(pos.down()).getBlock() instanceof AirBlock) {
-            world.setBlockState(pos, Blocks.AIR.getDefaultState());
-            world.spawnEntity(new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(this)));
+            world.breakBlock(pos, true);
         }
         super.neighborUpdate(state, world, pos, block, fromPos, notify);
     }

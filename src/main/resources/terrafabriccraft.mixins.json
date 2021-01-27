@@ -4,9 +4,16 @@
   "package": "com.github.amusingimpala75.terrafabriccraft.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "ArmourRenderWidenerMixin",
+    "BlocksLogInvoker",
+    "CancelShiftClickKnapping",
+    "ChestSpriteInjectMixin",
+    "InvokerBlockItemPlace",
     "MixinBlock",
     "MixinBlocksModifications",
-    "MixinFallingBlockEntity"
+    "MixinFallingBlockEntity",
+    "ScreenHandlerMaxCountRedirect",
+    "SpreadableInvokers"
   ],
   "client": [
   ],
